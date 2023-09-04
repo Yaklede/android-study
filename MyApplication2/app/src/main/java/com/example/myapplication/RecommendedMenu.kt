@@ -1,16 +1,18 @@
 package com.example.myapplication
 
-import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.scale
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
@@ -46,16 +48,21 @@ fun RecommendedMenu(name: String) {
                 }
             }
         )
+        val imageModifier = Modifier
+            .padding(10.dp)
+            .size(80.dp)
+            .clip(CircleShape)
         LazyRow {
             items(count = 10) { index ->
-                Canvas(
-                    modifier = Modifier.width(70.dp)
-                        .height(70.dp)
-                ) {
-                    scale(scaleX = 1.5f, scaleY = 1.5f) {
-                        drawCircle(color = backGroundColor(), radius = 20.dp.toPx())
-                    }
-                }
+                Image(
+                    painter = painterResource(R.drawable.coffee),
+                    contentDescription = "coffee",
+                    contentScale = ContentScale.Crop,
+                    modifier = imageModifier
+                )
+                Text(
+                    text = "아이스 아메리카노"
+                )
             }
         }
     }
