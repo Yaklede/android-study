@@ -48,21 +48,23 @@ fun RecommendedMenu(name: String) {
                 }
             }
         )
-        val imageModifier = Modifier
-            .padding(10.dp)
-            .size(80.dp)
-            .clip(CircleShape)
         LazyRow {
             items(count = 10) { index ->
-                Image(
-                    painter = painterResource(R.drawable.coffee),
-                    contentDescription = "coffee",
-                    contentScale = ContentScale.Crop,
-                    modifier = imageModifier
-                )
-                Text(
-                    text = "아이스 아메리카노"
-                )
+                Column {
+                    Image(
+                        painter = painterResource(R.drawable.coffee),
+                        contentDescription = "coffee",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .padding(10.dp)
+                            .size(80.dp)
+                            .clip(CircleShape)
+                    )
+                    Text(
+                        text = "아이스 아메리카노",
+                    )
+                }
+
             }
         }
     }
