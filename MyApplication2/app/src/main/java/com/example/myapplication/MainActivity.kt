@@ -3,8 +3,6 @@ package com.example.myapplication
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -21,7 +19,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    MainView()
                 }
             }
         }
@@ -38,21 +36,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        Column {
-            Row {
-                ImageHeader()
-            }
-
-            Row {
-                StarHeader()
-            }
-
-            Row {
-                Banner()
-            }
-            Row {
-                RecommendedMenu("야크르드")
-            }
-        }
+        Navigator()
     }
 }
