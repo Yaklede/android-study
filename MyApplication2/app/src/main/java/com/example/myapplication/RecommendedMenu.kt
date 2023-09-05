@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -50,7 +51,7 @@ fun RecommendedMenu(name: String) {
         )
         LazyRow {
             items(count = 10) { index ->
-                Column {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(
                         painter = painterResource(R.drawable.coffee),
                         contentDescription = "coffee",
@@ -62,6 +63,7 @@ fun RecommendedMenu(name: String) {
                     )
                     Text(
                         text = "아이스 아메리카노",
+                        fontSize = TextUnit(value = 2.5f, TextUnitType.Em)
                     )
                 }
 
